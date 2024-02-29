@@ -1,11 +1,8 @@
-﻿using Math_Game_V8.Models;
-using System.Security.AccessControl;
-
-namespace Math_Game_V8
+﻿namespace Math_Game_V8
 {
     internal class Menu
     {
-        GameEngine engine = new GameEngine();
+        GameEngine engine = new();
 
         internal void ShowMenu(string name, DateTime date)
         {
@@ -15,9 +12,7 @@ namespace Math_Game_V8
             do
             {
                 string mainMenuInput;
-                int[] levelInput = new int[2];
-                int questionsInput;
-
+                
                 do
                 {
                
@@ -45,16 +40,17 @@ namespace Math_Game_V8
 
                 Helpers.PrintSelection(mainMenuInput);
 
+                int[] levelInput;// = new int[2];
                 do
                 {
                     // Console.Clear();
                     Console.WriteLine();
                     levelInput = Helpers.DisplayLevelMenu();
 
-                } while (levelInput[1] == 0);
+                } while (levelInput[0] < 1 || levelInput[0] > 3);
 
                 /*Add number of questions*/
-
+                int questionsInput;
                 do
                 {
                     // Console.Clear();

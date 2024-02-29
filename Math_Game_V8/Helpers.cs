@@ -50,9 +50,9 @@ namespace Math_Game_V8
         internal static void DisplayIntroduction(string name, DateTime date)
         {
             Console.Clear();
-            Console.WriteLine("-----------------------------------------------------------------------------------------------------------");
+            Console.WriteLine("---------------------------------------------------------------------------------------------------------------------");
             Console.WriteLine($"Hello {name.ToUpper()}. It's {date.DayOfWeek}. This is your math's game. That's great that you're working on improving yourself.");
-            Console.WriteLine("-----------------------------------------------------------------------------------------------------------");
+            Console.WriteLine("---------------------------------------------------------------------------------------------------------------------");
             Console.WriteLine("Press any key to show menu");
             Console.ReadKey();
             Console.WriteLine("\n");
@@ -117,10 +117,18 @@ namespace Math_Game_V8
             int[] level = new int[2];
             
             int highLevelInput;
+            string levelInput;
 
-            Console.Write("Choose level [1-3] ");
-            string? levelInput = Console.ReadLine() ?? " ";
-            
+            do
+            {
+                Console.Write("Choose level [1-3] ");
+                levelInput = Console.ReadLine() ?? " ";
+                levelInput = levelInput.Trim();
+            }while (string.IsNullOrEmpty(levelInput) || !Int32.TryParse(levelInput, out _));
+
+            // while (levelInput != "1" && levelInput != "2" && levelInput != "3");
+
+
             if (levelInput == "1")
             {
                 highLevelInput = 10;
@@ -151,7 +159,7 @@ namespace Math_Game_V8
         // A9 Display Amount of Questions
         internal static int DisplayAmountQuestions()
         {
-            int howManyQuestions = -1;
+            int howManyQuestions;
             string numberString;
             do
             {
@@ -165,7 +173,7 @@ namespace Math_Game_V8
         // A11 Get Division Numbers
         internal static int[] GetDivisionNumbers(int highLevelInput)
         {
-            Random random = new Random();
+            Random random = new();
             int firstNumber = random.Next(1, highLevelInput);
             int secondNumber = random.Next(1, highLevelInput);
 
@@ -189,7 +197,7 @@ namespace Math_Game_V8
         {
             int[] twoNums = new int[2];
 
-            Random rnd = new Random();
+            Random rnd = new();
 
             int num1 = rnd.Next(1, highLevelInput);
             int num2 = rnd.Next(1, highLevelInput);
@@ -202,7 +210,7 @@ namespace Math_Game_V8
 
         // A17 Dispalay Database
 
-        internal static List<Game> games = new();
+        internal static List<Game> games = [];
         internal static void PrintGames()
         {
             Console.Clear();
