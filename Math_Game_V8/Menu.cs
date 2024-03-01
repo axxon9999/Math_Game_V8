@@ -16,7 +16,7 @@
                 do
                 {
                
-                    mainMenuInput = Helpers.DisplayMainMenu(name);
+                    mainMenuInput = Helpers.DisplayMainMenu(name).ToUpper();
 
                 } while (mainMenuInput != "V" && mainMenuInput != "A" && mainMenuInput != "S" && mainMenuInput != "M" && mainMenuInput != "D" && mainMenuInput != "R" && mainMenuInput != "Q");
 

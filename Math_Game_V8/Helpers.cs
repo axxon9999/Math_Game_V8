@@ -26,9 +26,10 @@ namespace Math_Game_V8
         {
             Console.Clear();
             Console.WriteLine();
-            Console.WriteLine($"Final:\tDate\t\tType\t\tLevel\t#Questions\tScore\tTime(Sec)");
-            Console.WriteLine($"\t--------------------------------------");
-            Console.WriteLine($"\t{DateTime.Now}\t{gameType}\t{levelInput}\t{questionsInput}\t{gameScore}\t{totalTime}");
+            Console.WriteLine($"Final:\t\tDate\t\tType\t\t   Level\t#Questions\tScore\tTime(Sec)");
+            Console.WriteLine($"\t-----------------------------------------------------------------------------------------");
+            Console.WriteLine($"\t{DateTime.Now}\t{gameType,-14}\t     {levelInput}\t\t    {questionsInput}\t\t  {gameScore}\t   {totalTime}");
+            Console.WriteLine($"\t-----------------------------------------------------------------------------------------");
         }
 
         // A5 Add To Database
@@ -216,13 +217,13 @@ namespace Math_Game_V8
             Console.Clear();
             Console.WriteLine("Games History");
             Console.WriteLine();
-            Console.WriteLine($"Date\t\tType\t\tLevel\tQuestions\tScore\tTime(Sec)");
-            Console.WriteLine("----------------------------------------");
+            Console.WriteLine($"Date\t\t\tType\t\tLevel\tQuestions\tScore\tTime(Sec)");
+            Console.WriteLine("---------------------------------------------------------------------------------");
             foreach (Game game in games)
             {
-                Console.WriteLine($"{game.Date}\t\t{game.Type}\t\t{game.Level}\t{game.Questions}\t{game.Score} pts\t{game.Time}");
+                Console.WriteLine($"{game.Date,-22}\t{game.Type,-14}\t  {game.Level}\t    {game.Questions,-2}\t        {game.Score,-2}pts\t    {game.Time}");
             }
-            Console.WriteLine("----------------------------------------\n");
+            Console.WriteLine("---------------------------------------------------------------------------------");
             Console.WriteLine("Press any key to return to Main Menu.");
             Console.ReadKey();
         }
