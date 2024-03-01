@@ -45,7 +45,7 @@ namespace Math_Game_V8
                 else if (mainInputMenu == "R")
                 {
                     string[] option = { "A", "S", "M", "D" };
-                    Random index = new Random();
+                    Random index = new();
                     int indexOps = index.Next(0, 4);
                     gameType = GameType.Random;
 
