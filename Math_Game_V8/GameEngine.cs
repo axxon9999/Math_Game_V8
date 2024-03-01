@@ -1,17 +1,13 @@
 ﻿using Math_Game_V8.Models;
-using static System.Formats.Asn1.AsnWriter;
 using System.Diagnostics;
-using System.Security.AccessControl;
 
 namespace Math_Game_V8
 {
     internal class GameEngine
     {
-        // A10 --- Play The Game
-
+   
         internal void PlayTheGame(string mainInputMenu, int questionsInput, int[] level)
         {
-            // Database => Date, Type, Level, Score, TimeSec
 
             int gameScore = 0;
             GameType gameType = GameType.Initiation;
@@ -74,18 +70,8 @@ namespace Math_Game_V8
                 }
             }
 
-            // recordData.Add(Convert.ToString(levelInput)); // Record Level
-            // recordData.Add(Convert.ToString(gameScore)); // Record Score
-
-            stopWatch.Stop(); // Stop timer
-            string totalTime = Convert.ToInt32(stopWatch.Elapsed.TotalSeconds).ToString();  // Total time
-
-            //recordData.Add(totalTime); // Record Time
-            
-            // return recordData;
-
-            // Display Final Result
-            // Add To History Record
+            stopWatch.Stop();
+            string totalTime = Convert.ToInt32(stopWatch.Elapsed.TotalSeconds).ToString();
 
             Helpers.PrintFinalScore(gameType, level[0], questionsInput, gameScore, totalTime);
 
@@ -94,12 +80,9 @@ namespace Math_Game_V8
             Console.WriteLine();
             Console.WriteLine($"Press any key to continue...");
             Console.ReadKey();
-            // gameScore = 0; // Reset Score to 0 for a new Game
+            
         }
-
-        // engine method (type, #questions, level)
-        //loop ()
-
+        
         internal static int Add(int[] nums, int gameScore)
         {
             int calcAnswer = nums[0] + nums[1];
@@ -107,12 +90,7 @@ namespace Math_Game_V8
             Console.Write(nums[0] + " + " + nums[1] + " =  ? ");
 
             string? inputAnswerStr = Console.ReadLine() ?? " ";
-            // Read string
-            /*while (string.IsNullOrEmpty(inputAnswerStr) || !Int32.TryParse(inputAnswerStr, out _))
-            {
-                Console.WriteLine("Your answer needs to be an integer. Try again.");
-                inputAnswerStr = Console.ReadLine();
-            }*/
+            
             inputAnswerStr = Helpers.ValidateResult(inputAnswerStr);
 
             int inputAnswer = Convert.ToInt32(inputAnswerStr);       
@@ -129,12 +107,7 @@ namespace Math_Game_V8
             Console.Write(nums[0] + " - " + nums[1] + " =  ? ");
 
             string? inputAnswerStr = Console.ReadLine() ?? " ";
-            // Read string
-            /*while (string.IsNullOrEmpty(inputAnswerStr) || !Int32.TryParse(inputAnswerStr, out _))
-            {
-                Console.WriteLine("Your answer needs to be an integer. Try again.");
-                inputAnswerStr = Console.ReadLine();
-            }*/
+            
             inputAnswerStr = Helpers.ValidateResult(inputAnswerStr);
 
             int inputAnswer = Convert.ToInt32(inputAnswerStr);
@@ -152,12 +125,7 @@ namespace Math_Game_V8
             Console.Write(nums[0] + " X " + nums[1] + " =  ? ");
 
             string? inputAnswerStr = Console.ReadLine() ?? " ";
-            // Read string
-            /*while (string.IsNullOrEmpty(inputAnswerStr) || !Int32.TryParse(inputAnswerStr, out _))
-            {
-                Console.WriteLine("Your answer needs to be an integer. Try again.");
-                inputAnswerStr = Console.ReadLine();
-            }*/
+            
             inputAnswerStr = Helpers.ValidateResult(inputAnswerStr);
 
             int inputAnswer = Convert.ToInt32(inputAnswerStr);
@@ -181,14 +149,8 @@ namespace Math_Game_V8
 
             Console.Write(nums[0] + " / " + nums[1] + " =  ? ");
 
-            // Read string
             string? inputAnswerStr = Console.ReadLine() ?? " ";
-            // Read string
-            /*while (string.IsNullOrEmpty(inputAnswerStr) || !Int32.TryParse(inputAnswerStr, out _))
-            {
-                Console.WriteLine("Your answer needs to be an integer. Try again.");
-                inputAnswerStr = Console.ReadLine();
-            }*/
+
             inputAnswerStr = Helpers.ValidateResult(inputAnswerStr);
 
             int inputAnswer = Convert.ToInt32(inputAnswerStr);
@@ -197,13 +159,5 @@ namespace Math_Game_V8
 
             return gameScore;
         }
-
-        // division addition without repeat
-        //      => GetDivisionNumbers
-        //         int[] nums = Helpers.GetDivisionNumbers(level[1]);
-
-
-
-
     }
 }

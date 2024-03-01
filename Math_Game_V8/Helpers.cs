@@ -1,12 +1,9 @@
 ﻿using Math_Game_V8.Models;
-using System.Security.AccessControl;
-using static System.Formats.Asn1.AsnWriter;
 
 namespace Math_Game_V8
 {
     internal class Helpers
     {
-        // A1 Function
         internal static string GetName()
         {
             Console.WriteLine("Please type your name");
@@ -21,7 +18,6 @@ namespace Math_Game_V8
             return name;
         }
 
-        // A4 Print Game Result
         internal static void PrintFinalScore(GameType gameType, int levelInput, int questionsInput, int gameScore, string totalTime)
         {
             Console.Clear();
@@ -32,7 +28,6 @@ namespace Math_Game_V8
             Console.WriteLine($"\t-----------------------------------------------------------------------------------------");
         }
 
-        // A5 Add To Database
         internal static void AddToDatabase(GameType gameType, int levelInput, int questionsInput, int gameScore, string totalTime)
         {
             games.Add(new Game
@@ -47,7 +42,6 @@ namespace Math_Game_V8
 
         }
 
-        // A6 Display Introduction
         internal static void DisplayIntroduction(string name, DateTime date)
         {
             Console.Clear();
@@ -60,7 +54,6 @@ namespace Math_Game_V8
 
         }
 
-        // A7 Display Main Menu
         internal static string DisplayMainMenu(string name)
         {
             Console.Clear();
@@ -111,8 +104,6 @@ namespace Math_Game_V8
             }
         }
 
-
-        // A8 Display Level Menu
         internal static int[] DisplayLevelMenu()
         {
             int[] level = new int[2];
@@ -126,9 +117,6 @@ namespace Math_Game_V8
                 levelInput = Console.ReadLine() ?? " ";
                 levelInput = levelInput.Trim();
             }while (string.IsNullOrEmpty(levelInput) || !Int32.TryParse(levelInput, out _));
-
-            // while (levelInput != "1" && levelInput != "2" && levelInput != "3");
-
 
             if (levelInput == "1")
             {
@@ -154,10 +142,8 @@ namespace Math_Game_V8
             level[1] = highLevelInput;
 
             return level;
-
         }
 
-        // A9 Display Amount of Questions
         internal static int DisplayAmountQuestions()
         {
             int howManyQuestions;
@@ -170,29 +156,6 @@ namespace Math_Game_V8
             howManyQuestions = Convert.ToInt32(numberString);
             return howManyQuestions;
         }
-
-        // A11 Get Division Numbers
-        internal static int[] GetDivisionNumbers(int highLevelInput)
-        {
-            Random random = new();
-            int firstNumber = random.Next(1, highLevelInput);
-            int secondNumber = random.Next(1, highLevelInput);
-
-            int[] result = new int[2];
-
-            while (firstNumber % secondNumber != 0)
-            {
-                firstNumber = random.Next(1, highLevelInput);
-                secondNumber = random.Next(1, highLevelInput);
-            }
-
-            result[0] = firstNumber;
-            result[1] = secondNumber;
-
-            return result;
-        }
-
-        // A11 Suite
 
         internal static int[] SelectTwoRandomNumbers(int highLevelInput)
         {
@@ -208,8 +171,6 @@ namespace Math_Game_V8
 
             return twoNums;
         }
-
-        // A17 Dispalay Database
 
         internal static List<Game> games = [];
         internal static void PrintGames()
@@ -228,19 +189,6 @@ namespace Math_Game_V8
             Console.ReadKey();
         }
 
-        /*internal static void AddToHistory(int gameScore, GameType gameType)
-        {
-            games.Add(new Game
-            {
-                Date = DateTime.Now,
-                Score = gameScore,
-                Type = gameType
-            });
-
-        }*/
-
-        
-        // A18 Validate Answer
         internal static string? ValidateResult(string result)
         {
             while (string.IsNullOrEmpty(result) || !Int32.TryParse(result, out _))
@@ -251,7 +199,6 @@ namespace Math_Game_V8
             return result;
         }
 
-        // A16 Test For Correct Answer
         internal static int TestAnswer(int inputAnswer, int calcAnswer, int gameScore)
         {
             Console.WriteLine();
