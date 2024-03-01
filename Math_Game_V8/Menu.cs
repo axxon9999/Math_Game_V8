@@ -32,9 +32,7 @@
                 if (mainMenuInput == "V")
                 {
                     Console.Clear();
-
                     Helpers.PrintGames();
-
                     continue;
                 }
 
@@ -53,12 +51,12 @@
                 {
                     Console.WriteLine();
                     questionsInput = Helpers.DisplayAmountQuestions();
+
                 } while (questionsInput < 5 || questionsInput > 20);
 
                 engine.PlayTheGame(mainMenuInput, questionsInput, levelInput);
 
             } while (true);
-
         }
     }
 }

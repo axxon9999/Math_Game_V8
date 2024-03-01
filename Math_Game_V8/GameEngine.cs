@@ -79,8 +79,7 @@ namespace Math_Game_V8
 
             Console.WriteLine();
             Console.WriteLine($"Press any key to continue...");
-            Console.ReadKey();
-            
+            Console.ReadKey();        
         }
         
         internal static int Add(int[] nums, int gameScore)
@@ -115,7 +114,6 @@ namespace Math_Game_V8
             gameScore = Helpers.TestAnswer(inputAnswer, calcAnswer, gameScore);
 
             return gameScore;
-
         }
 
         internal static int Multiply(int[] nums, int gameScore)
@@ -145,6 +143,7 @@ namespace Math_Game_V8
                     nums[1] = 1;
                 }
             }
+
             int calcAnswer = nums[0] / nums[1];
 
             Console.Write(nums[0] + " / " + nums[1] + " =  ? ");

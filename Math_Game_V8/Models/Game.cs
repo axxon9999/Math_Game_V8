@@ -1,6 +1,4 @@
-﻿using System.Security.AccessControl;
-
-namespace Math_Game_V8.Models
+﻿namespace Math_Game_V8.Models
 {
     internal class Game
     {

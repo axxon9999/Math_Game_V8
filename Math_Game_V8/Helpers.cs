@@ -39,7 +39,6 @@ namespace Math_Game_V8
                 Score = gameScore,
                 Time = totalTime
             });
-
         }
 
         internal static void DisplayIntroduction(string name, DateTime date)
@@ -51,7 +50,6 @@ namespace Math_Game_V8
             Console.WriteLine("Press any key to show menu");
             Console.ReadKey();
             Console.WriteLine("\n");
-
         }
 
         internal static string DisplayMainMenu(string name)
@@ -74,7 +72,9 @@ namespace Math_Game_V8
             Console.WriteLine();
             Console.WriteLine("--------------------------------------------------------");
             Console.Write("Choice: ");
+
             string? mainMenuInput = Console.ReadLine() ?? " ".ToUpper();
+
             return mainMenuInput;
         }
 
@@ -152,8 +152,10 @@ namespace Math_Game_V8
             {
                 Console.Write("Choose the amount of questions [5-20] ");
                 numberString = Console.ReadLine() ?? " ";
+
             } while (string.IsNullOrEmpty(numberString) || !Int32.TryParse(numberString, out _));
             howManyQuestions = Convert.ToInt32(numberString);
+
             return howManyQuestions;
         }
 
@@ -180,10 +182,12 @@ namespace Math_Game_V8
             Console.WriteLine();
             Console.WriteLine($"Date\t\t\tType\t\tLevel\tQuestions\tScore\tTime(Sec)");
             Console.WriteLine("---------------------------------------------------------------------------------");
+            
             foreach (Game game in games)
             {
                 Console.WriteLine($"{game.Date,-22}\t{game.Type,-14}\t  {game.Level}\t    {game.Questions,-2}\t        {game.Score,-2}pts\t    {game.Time}");
             }
+            
             Console.WriteLine("---------------------------------------------------------------------------------");
             Console.WriteLine("Press any key to return to Main Menu.");
             Console.ReadKey();
@@ -196,12 +200,14 @@ namespace Math_Game_V8
                 Console.WriteLine("Your answer needs to be an integer. Try again.");
                 result = Console.ReadLine() ?? " ";
             }
+            
             return result;
         }
 
         internal static int TestAnswer(int inputAnswer, int calcAnswer, int gameScore)
         {
             Console.WriteLine();
+            
             if (calcAnswer == inputAnswer)
             {
                 Console.WriteLine("Very Good! you calculated the right answer!");
@@ -211,7 +217,9 @@ namespace Math_Game_V8
             {
                 Console.WriteLine("Wrong answer!");
             }
+            
             Console.ReadKey();
+
             return gameScore;
         }
 
